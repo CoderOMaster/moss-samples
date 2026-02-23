@@ -12,14 +12,3 @@ export interface MossSearchOptions {
   /** Text shown on the nav search button. Default: 'Search' */
   buttonText?: string
 }
-
-declare module 'vitepress' {
-  namespace DefaultTheme {
-    interface Config {
-      search?:
-        | { provider: 'local'; options?: unknown }
-        | { provider: 'algolia'; options?: unknown }
-        | { provider: 'moss'; options?: MossSearchOptions }
-    }
-  }
-}

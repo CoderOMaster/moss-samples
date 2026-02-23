@@ -163,86 +163,46 @@ If indexing fails (network error, bad credentials, etc.) the build **does not fa
 
 ---
 
-## Testing the plugin locally
+## Testing Locally (Demo Site)
+
+The repository includes a ready-to-use demo site in the `demo-site/` folder. This is the best way to test changes to the plugin.
 
 ### Step 1 — Build the plugin
 
+First, build the plugin from the root directory to generate the `dist` folder.
+
 ```bash
-cd vitepress-plugin-moss
 pnpm install
 pnpm build
-# dist/ is now populated
 ```
 
-### Step 2 — Create a minimal test VitePress site
+### Step 2 — Set up the Demo Site
+
+Navigate to the demo site directory and install its dependencies.
 
 ```bash
-mkdir /tmp/test-docs && cd /tmp/test-docs
-npm init -y
-npm install vitepress
+cd demo-site
+npm install
 ```
 
-Add `"type": "module"` to the generated `package.json`:
+### Step 3 — Configure and Build
 
-```json
-{
-  "name": "test-docs",
-  "type": "module",
-  ...
-}
-```
-
-Create some pages:
+The demo site is already configured to use the local plugin. You just need to add your Moss credentials to `demo-site/docs/.vitepress/config.ts` (or use environment variables).
 
 ```bash
-mkdir -p docs/.vitepress
-echo "# Home\n\nThis is the home page." > docs/index.md
-echo "# Guide\n\n## Installation\n\nRun npm install." > docs/guide.md
+# From inside demo-site/
+npx vitepress build docs
 ```
 
-### Step 3 — Link the local plugin
+### Step 4 — Preview
+
+Start the preview server to test the search modal.
 
 ```bash
-# From inside /tmp/test-docs
-npm install /path/to/vitepress-plugin-moss
+npx vitepress preview docs
 ```
 
-### Step 4 — Configure VitePress
-
-```ts
-// docs/.vitepress/config.ts
-import { defineConfig } from 'vitepress'
-import { mossIndexerPlugin } from 'vitepress-plugin-moss'
-
-export default defineConfig({
-  title: 'Test Docs',
-  themeConfig: {
-    search: {
-      provider: 'moss' as any,
-      options: {
-        projectId: process.env.MOSS_PROJECT_ID!,
-        projectKey: process.env.MOSS_PROJECT_KEY!,
-        indexName: 'test-docs',
-      },
-    },
-  },
-  async buildEnd(siteConfig) {
-    const plugin = await mossIndexerPlugin(siteConfig)
-    if (typeof plugin.buildEnd === 'function') {
-      await (plugin.buildEnd as Function).call({ environment: { name: 'client' } })
-    }
-  },
-})
-```
-
-### Step 5 — Run the build
-
-```bash
-cd /tmp/test-docs
-MOSS_PROJECT_ID=xxx MOSS_PROJECT_KEY=yyy npx vitepress build docs
-```
-
-You should see the indexing output described in [Build output](#build-output) above.
+Open [http://localhost:4173](http://localhost:4173) in your browser and verify the search functionality.
 
 ---
 

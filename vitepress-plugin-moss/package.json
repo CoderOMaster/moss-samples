@@ -56,5 +56,9 @@
     "search",
     "semantic-search"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "author": "",
+  "directories": {
+    "doc": "docs"
+  }
 }

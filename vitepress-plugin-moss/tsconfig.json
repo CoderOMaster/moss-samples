@@ -12,5 +12,5 @@
     "lib": ["ESNext", "DOM"],
     "types": ["node"]
   },
-  "include": ["*.ts", "*.vue"]
+  "include": ["*.ts", "*.vue", "env.d.ts"]
 }

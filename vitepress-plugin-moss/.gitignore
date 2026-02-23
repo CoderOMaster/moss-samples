@@ -54,3 +54,6 @@ dist-ssr
 
 # npm pack
 *.tgz
+
+# Demo Site
+demo-site/

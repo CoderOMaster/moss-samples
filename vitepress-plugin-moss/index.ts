@@ -41,38 +41,34 @@ export function mossIndexerPlugin(): Plugin {
       }
     },
     configResolved(config) {
-      console.error('[MossPlugin] configResolved called')
       siteConfig = (config as any).vitepress
     },
     load(id) {
       if (id === resolvedVirtualModuleId) {
         // If siteConfig isn't available yet or search isn't moss, return empty config
-        if (siteConfig?.site?.themeConfig?.search?.provider !== 'moss') {
+        const searchConfig = siteConfig?.site?.themeConfig?.search as any
+        if (searchConfig?.provider !== 'moss') {
           return 'export default () => ({})'
         }
-        const searchOptions = siteConfig.site.themeConfig.search.options || {}
+        const searchOptions = searchConfig.options || {}
         return `export default () => (${JSON.stringify(searchOptions)})`
       }
     },
     async buildEnd() {
       // Only run when siteConfig is available and Moss search is enabled
-      if (!siteConfig || siteConfig.site.themeConfig?.search?.provider !== 'moss') {
+      const searchConfig = siteConfig.site.themeConfig?.search as any
+      if (!siteConfig || searchConfig?.provider !== 'moss') {
         return
       }
 
       // Only run for client build and only during production build
       // NOTE: environment.name is used in newer Vite/VitePress
       const environment = (this as any).environment
-      if (
-        (environment && environment.name !== 'client') ||
-        process.env.NODE_ENV !== 'production'
-      )
-        return
-
+      
       try {
         debug('Starting Moss index sync...')
 
-        const searchConfig = siteConfig.site.themeConfig?.search
+        const searchConfig = siteConfig.site.themeConfig?.search as any
         const searchOptions =
           searchConfig?.provider === 'moss' ? searchConfig.options : undefined
 
