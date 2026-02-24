@@ -182,7 +182,7 @@ Navigate to the demo site directory and install its dependencies.
 
 ```bash
 cd demo-site
-npm install
+pnpm install
 ```
 
 ### Step 3 — Configure and Build

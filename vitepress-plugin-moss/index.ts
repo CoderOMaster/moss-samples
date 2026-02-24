@@ -28,14 +28,12 @@ export function mossIndexerPlugin(): Plugin {
       if (id.endsWith('/VPNavBarSearch.vue') || id === './VPNavBarSearch.vue') {
         const replacement = path.resolve(__dirname, '..', 'Search.vue')
         if (fs.existsSync(replacement)) {
-          console.error(`[MossPlugin] Shadowing VPNavBarSearch.vue -> ${replacement}`)
           return replacement
         }
       }
       if (id.endsWith('/VPNavBarSearchButton.vue') || id === './VPNavBarSearchButton.vue') {
         const replacement = path.resolve(__dirname, '..', 'SearchButton.vue')
         if (fs.existsSync(replacement)) {
-          console.error(`[MossPlugin] Shadowing VPNavBarSearchButton.vue -> ${replacement}`)
           return replacement
         }
       }
@@ -105,6 +103,9 @@ export function mossIndexerPlugin(): Plugin {
         )
         debug('Moss index sync error', err)
       }
+    },
+    async closeBundle() {
+      await (this as any).buildEnd?.()
     }
   }
 }
