@@ -54,3 +54,5 @@ dist-ssr
 
 # npm pack
 *.tgz
+# Exception: include specific package tarball
+!moss-tools-md-indexer-1.0.0-beta.3.tgz
