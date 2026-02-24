@@ -1,0 +1,20 @@
+diff --git a/dist/index.js b/dist/index.js
+index 0338acc4b7e8066a9e6c751fd121b7de1d734dd7..4210dfcf3f5c883594a2551cc5e007cbb8cb11a8 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -1,11 +1,11 @@
+ import path from 'node:path';
+ import pc from 'picocolors';
+ import dotenv from 'dotenv';
+-import { buildJsonDocs } from './builder';
+-import { uploadDocuments } from './uploader';
++import { buildJsonDocs } from './builder.js';
++import { uploadDocuments } from './uploader.js';
+ // Re-export functions for advanced usage
+-export { buildJsonDocs } from './builder';
+-export { uploadDocuments, createIndex } from './uploader';
++export { buildJsonDocs } from './builder.js';
++export { uploadDocuments, createIndex } from './uploader.js';
+ // Load environment variables
+ dotenv.config();
+ function getMossCreds(providedCreds) {
