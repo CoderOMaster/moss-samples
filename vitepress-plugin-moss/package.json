@@ -4,7 +4,7 @@
   "description": "Moss semantic search plugin for VitePress",
   "packageManager": "pnpm@10.28.2",
   "engines": {
-    "node": ">=20.0.0"
+    "node": "22.x"
   },
   "type": "module",
   "main": "./dist/index.cjs",
