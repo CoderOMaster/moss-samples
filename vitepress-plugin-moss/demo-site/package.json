@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "packageManager": "pnpm@10.28.2",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "directories": {
     "doc": "docs"
   },
   "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +21,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "vite": "^5.4.0",
     "vitepress": "^1.6.4",
     "vitepress-plugin-moss": "file:.."
   },
