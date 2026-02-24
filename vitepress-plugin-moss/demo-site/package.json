@@ -8,7 +8,7 @@
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
-    "docs:build": "pnpm --filter vitepress-plugin-moss build && vitepress build docs",
+    "docs:build": "cd .. && pnpm build && cd demo-site && vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
