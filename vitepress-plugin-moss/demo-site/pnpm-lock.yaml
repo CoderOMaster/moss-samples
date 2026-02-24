@@ -441,9 +441,8 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@moss-tools/md-indexer@file:../moss-tools-md-indexer-1.0.0-beta.3.tgz':
-    resolution: {integrity: sha512-H3EY8JszUFDCS8qA/a1z7t3SNl8OF7XtCoaO16SNcH1NVuCpjAToCRamgZ4fn4vUZmcZI/tClsmN6Mq4EUs9BA==, tarball: file:../moss-tools-md-indexer-1.0.0-beta.3.tgz}
-    version: 1.0.0-beta.3
+  '@moss-tools/md-indexer@1.0.0-beta.3':
+    resolution: {integrity: sha512-DaRj85Du+mTGnRgrLSfdN+pU5Y4M0ZRlTbqEs9j2MNUm6+MteiWrkrJ5dmtOpmqojiCEAc9ldVfuBt4Ws17C+g==}
     peerDependencies:
       vitepress: ^1.0.0 || ^2.0.0-0
 
@@ -1648,7 +1647,7 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  '@moss-tools/md-indexer@file:../moss-tools-md-indexer-1.0.0-beta.3.tgz(vitepress@1.6.4(@algolia/client-search@5.49.0)(@types/node@25.3.0)(postcss@8.5.6)(search-insights@2.17.3))':
+  '@moss-tools/md-indexer@1.0.0-beta.3(vitepress@1.6.4(@algolia/client-search@5.49.0)(@types/node@25.3.0)(postcss@8.5.6)(search-insights@2.17.3))':
     dependencies:
       '@inferedge-rest/moss': 1.0.0-beta.3
       cheerio: 1.2.0
@@ -2537,7 +2536,7 @@ snapshots:
   vitepress-plugin-moss@file:..(vite@5.4.21(@types/node@25.3.0))(vitepress@1.6.4(@algolia/client-search@5.49.0)(@types/node@25.3.0)(postcss@8.5.6)(search-insights@2.17.3)):
     dependencies:
       '@inferedge/moss': 1.0.0-beta.7
-      '@moss-tools/md-indexer': file:../moss-tools-md-indexer-1.0.0-beta.3.tgz(vitepress@1.6.4(@algolia/client-search@5.49.0)(@types/node@25.3.0)(postcss@8.5.6)(search-insights@2.17.3))
+      '@moss-tools/md-indexer': 1.0.0-beta.3(vitepress@1.6.4(@algolia/client-search@5.49.0)(@types/node@25.3.0)(postcss@8.5.6)(search-insights@2.17.3))
       obug: 1.0.2
       vite: 5.4.21(@types/node@25.3.0)
       vitepress: 1.6.4(@algolia/client-search@5.49.0)(@types/node@25.3.0)(postcss@8.5.6)(search-insights@2.17.3)
