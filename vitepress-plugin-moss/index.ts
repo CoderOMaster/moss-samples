@@ -1,7 +1,6 @@
 import { createDebug } from 'obug'
 import type { Plugin } from 'vite'
 import type { SiteConfig, DefaultTheme } from 'vitepress'
-import { sync } from '@moss-tools/md-indexer'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import fs from 'node:fs'
@@ -89,6 +88,7 @@ export function mossIndexerPlugin(): Plugin {
           indexName
         }
 
+        const { sync } = await import('@moss-tools/md-indexer')
         await sync({
           root: siteConfig.srcDir,
           creds
