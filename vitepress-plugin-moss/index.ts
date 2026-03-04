@@ -90,7 +90,7 @@ export function mossIndexerPlugin(): Plugin {
 
         const { sync } = await import('@moss-tools/md-indexer')
         await sync({
-          root: siteConfig.srcDir,
+          root: siteConfig.root, // VitePress root (where .vitepress/ lives); indexer reads srcDir from config
           creds
         })
 

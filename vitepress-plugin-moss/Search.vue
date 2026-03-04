@@ -5,12 +5,8 @@ import SearchButton from './SearchButton.vue';
 // @ts-ignore — resolved by the virtual module at build time
 import getMossConfig from 'virtual:moss-config';
 
-console.log('[MossSearch] Component loaded');
 const config = getMossConfig();
-console.log('[MossSearch] Config:', config);
 import InferEdgeLogo from './InferEdgeLogo_Dark_Icon.png';
-console.log('[MossSearch] Logo imported:', !!InferEdgeLogo);
-
 
 const isOpen = ref(false);
 const query = ref('');
